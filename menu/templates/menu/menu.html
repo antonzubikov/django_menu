@@ -1,0 +1,13 @@
+{% load menu_tags %}
+{% load mptt_tags %}
+
+<ul class="menu">
+    {% for menu_item in menu_items %}
+        {% recursetree menu_item.children %}
+            <li{% if node.pk == menu_item.pk %} class="active"{% endif %}>
+                <a href="{{ node.url }}">{{ node.name }}</a>
+                {{ children }}
+            </li>
+        {% endrecursetree %}
+    {% endfor %}
+</ul>

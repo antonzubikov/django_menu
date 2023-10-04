@@ -1,0 +1,2 @@
+django==4.2.5
+django-mptt==0.15.0
